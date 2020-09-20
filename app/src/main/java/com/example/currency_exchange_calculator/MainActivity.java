@@ -71,15 +71,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onClick(View view) {
         if(calcbtn==view){
+            if(to==from&&!amount.getText().toString().equals(""))
+                Toast.makeText(this,"The selected currencies are the same",Toast.LENGTH_LONG).show();
+            else{
             Intent intent=new Intent(this,ResultActivity.class);
             if(amount.getText().toString().equals("")) {
                 Toast.makeText(this,"there's an empty field!",Toast.LENGTH_LONG).show();
             }
             else {
-                double result=(double) Double.parseDouble(amount.getText().toString())*from.getValue()/to.getValue();
+                double result = (double) Double.parseDouble(amount.getText().toString()) * from.getValue() / to.getValue();
                 Exchange exchange = new Exchange(from, to, Double.parseDouble(amount.getText().toString()), result);
                 intent.putExtra("exchange", exchange);
                 startActivity(intent);
+            }
             }
         }
     }
