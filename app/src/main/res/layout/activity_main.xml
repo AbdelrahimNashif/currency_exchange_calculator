@@ -74,6 +74,7 @@
         android:layout_marginHorizontal="50dp"
         android:textSize="20sp"
         android:hint="amount"
+        android:gravity="center"
         />
 
     <Button

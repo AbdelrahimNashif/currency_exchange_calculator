@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Spinner spinner1,spinner2;
     private EditText amount;
     private Button calcbtn,tablebtn;
-    private String from,to;
+    private Currency from,to;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,12 +42,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         if(adapterView.getId()==spinner1.getId()) {
             String text = adapterView.getItemAtPosition(i).toString();
-            from=text;
+            for(int k=0;k<Currency.currencies.length; k++){
+             if (Currency.currencies[k].getCode().equals(text))
+                   from=Currency.currencies[k];
+            }
+
             Toast.makeText(this, "from: "+text, Toast.LENGTH_LONG).show();
         }
+
+
         else if (adapterView.getId()==spinner2.getId()){
             String text = adapterView.getItemAtPosition(i).toString();
-            to=text;
+            for(int k=0;k<Currency.currencies.length; k++){
+                if (Currency.currencies[k].getCode().equals(text))
+                    to=Currency.currencies[k];
+            }
+
             Toast.makeText(this, "to: "+text, Toast.LENGTH_LONG).show();
         }
 
@@ -61,12 +71,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onClick(View view) {
         if(calcbtn==view){
-            Intent intent1=new Intent(this,ResultActivity.class);
-            if(!amount.getText().toString().equals("")) {
-                Currency currency = new Currency(from, to, Double.parseDouble(amount.getText().toString()), 0);
-                intent1.putExtra("currency", currency);
+            Intent intent=new Intent(this,ResultActivity.class);
+            if(amount.getText().toString().equals("")) {
+                Toast.makeText(this,"there's an empty field!",Toast.LENGTH_LONG).show();
             }
-            startActivity(intent1);
+            else {
+                double result=(double) Double.parseDouble(amount.getText().toString())*from.getValue()/to.getValue();
+                Exchange exchange = new Exchange(from, to, Double.parseDouble(amount.getText().toString()), result);
+                intent.putExtra("exchange", exchange);
+                startActivity(intent);
+            }
         }
     }
 }

@@ -26,8 +26,8 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         if(resultbtn==view){
             Intent intent=getIntent();
-            Currency currency=(Currency) intent.getSerializableExtra("currency");
-            tvresult.setText(currency.getFrom()+" "+currency.getAmount()+'\n'+'\n'+"="+'\n'+'\n'+currency.getTo()+" "+currency.getResult());
+            Exchange exchange=(Exchange) intent.getSerializableExtra("exchange");
+            tvresult.setText(exchange.getFrom().getCode()+": "+exchange.getAmount()+exchange.getFrom().getSymbol()+'\n'+'\n'+"="+'\n'+'\n'+exchange.getTo().getCode()+": "+exchange.getResult()+exchange.getTo().getSymbol());
         }
         else if (backbtn==view){
             Intent intent=new Intent(this,MainActivity.class);
