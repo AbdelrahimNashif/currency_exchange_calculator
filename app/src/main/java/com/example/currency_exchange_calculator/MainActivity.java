@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         amount=findViewById(R.id.amountet);
         calcbtn=findViewById(R.id.calcbtn);
         calcbtn.setOnClickListener(this);
+        tablebtn=findViewById(R.id.table_compbtn);
+        tablebtn.setOnClickListener(this);
 
     }
 
@@ -85,6 +87,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 startActivity(intent);
             }
             }
+        }
+        else if(tablebtn==view){
+            Intent intent=new Intent(this,TableCombination.class);
+            startActivity(intent);
         }
     }
 }
