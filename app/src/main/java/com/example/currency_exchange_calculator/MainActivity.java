@@ -24,14 +24,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         spinner1=findViewById(R.id.spinner1);
-        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.arrayone,android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.arrayone,R.layout.spinner_custom);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(adapter);
         spinner1.setOnItemSelectedListener(this);
         spinner2=findViewById(R.id.spinner2);
         spinner2.setAdapter(adapter);
         spinner2.setOnItemSelectedListener(this);
-
         amount=findViewById(R.id.amountet);
         calcbtn=findViewById(R.id.calcbtn);
         calcbtn.setOnClickListener(this);
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                    from=Currency.currencies[k];
             }
 
-            Toast.makeText(this, "from: "+text, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "from: "+text, Toast.LENGTH_SHORT).show();
         }
 
 
@@ -60,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     to=Currency.currencies[k];
             }
 
-            Toast.makeText(this, "to: "+text, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "to: "+text, Toast.LENGTH_SHORT).show();
         }
 
         }

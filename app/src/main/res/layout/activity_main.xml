@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
+    android:background="#211D39"
     >
 
     <TextView
@@ -17,6 +18,7 @@
         android:layout_marginTop="30dp"
         android:paddingHorizontal="20dp"
         android:gravity="center"
+        android:textColor="#ffff"
         />
 
     <LinearLayout
@@ -32,15 +34,16 @@
         android:text="From:"
         android:textSize="20sp"
         android:layout_marginLeft="20dp"
+        android:textColor="#ffff"
         />
 
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_marginHorizontal="20dp"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        />
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:textSize="20sp"
+            android:backgroundTint="#ffff"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,6 +58,7 @@
         android:text="To:     "
         android:textSize="20sp"
         android:layout_marginLeft="20dp"
+        android:textColor="#fff"
         />
 
         <Spinner
@@ -62,7 +66,8 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:backgroundTint="#ffff"/>
     </LinearLayout>
 
     <EditText
@@ -75,6 +80,8 @@
         android:textSize="20sp"
         android:hint="amount"
         android:gravity="center"
+        android:textColor="#fff"
+        android:textColorHint="#fff"
         />
 
     <Button
@@ -86,6 +93,8 @@
         android:textSize="20sp"
         android:layout_marginTop="80dp"
         android:layout_marginHorizontal="100dp"
+        android:textColor="#fff"
+        android:background="@drawable/button_custom"
         />
 
     <Button
@@ -97,6 +106,8 @@
         android:textSize="20sp"
         android:layout_marginTop="20dp"
         android:layout_marginHorizontal="80dp"
+        android:textColor="#fff"
+        android:background="@drawable/button_custom"
         />
 
 </LinearLayout>
